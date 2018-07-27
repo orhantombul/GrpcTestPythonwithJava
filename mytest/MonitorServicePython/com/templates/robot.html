@@ -7,24 +7,24 @@
 </head>
 <body>
     {% for container_ip in containerMap %}
-        {% for docker in containerMap %}
+        {% for docker in containerMap[container_ip].getDockerList() %}
             <div class="card-header"> ONAP -- {{ container_ip }} </div>
             <div class="flex-container">
                  <div>
                     {% if color == False %}
                         <div class="card">
-                                <div class="card-header">DockerName: {{docker}}</div>
+                                <div class="card-header">DockerName: {{docker.getDockerName() }}</div>
                                     <div class="card-main">
-                                        <div class="material-icons">IpAddress: {{ docker.docker_info.ip }}</div>
-                                         <div class="material-icons">Status {{ docker.docker_info.status }}</div>
+                                        <div class="material-icons">IpAddress: {{ docker.getDockerInfo().getDockerInfoIp() }}</div>
+                                         <div class="material-icons">Status {{ docker.getDockerInfo().getDockerInfoStatus() }}</div>
                                     </div>
                         </div>
                      {% else %}
                         <div class="card1">
-                            <div class="card-header1"> {{ docker.dname }}</div>
+                            <div class="card-header1"> {{ docker.getDockerName() }}</div>
                             <div class="card-main1">
-                                <div class="material-icons1">IpAddress : {{ docker.docker_info.ip }}</div>
-                                <div class="material-icons1">Status :{{ docker.docker_info.status }}</div>
+                                <div class="material-icons1">IpAddress : {{ docker.getDockerInfo().getDockerInfoIp() }}</div>
+                                <div class="material-icons1">Status :{{ docker.getDockerInfo().getDockerInfoStatus() }}</div>
                             </div>
                         </div>
                     {% endif %}

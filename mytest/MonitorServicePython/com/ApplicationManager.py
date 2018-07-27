@@ -1,4 +1,4 @@
-from com.Container import Container
+from Container import Container
 
 
 class ApplicationManager:
