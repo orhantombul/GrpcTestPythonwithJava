@@ -1,6 +1,8 @@
+from mytest.MonitorServicePython.com.DockerInfo import DockerInfo
+
 
 class Docker:
-    def __init__(self, dname, docker_info):
+    def init(self, dname=None, docker_info=None):
         self.__dname = dname
         self.__docker_info = docker_info
 
@@ -15,3 +17,9 @@ class Docker:
 
     def setDockerInfo(self, docker_info):
         self.__docker_info = docker_info
+
+    def setDockerByGrpcDocker(self, grpcDocker):
+        self.setDockerName(grpcDocker.dockername)
+        dockerInfo = DockerInfo()
+        dockerInfo.setDockerInfoByGrpcDockerInfo(grpcDocker.dockerinfo)
+        self.setDockerInfo(dockerInfo)

@@ -1,4 +1,4 @@
-from Container import Container
+from mytest.MonitorServicePython.com.Container import Container
 
 
 class ApplicationManager:
@@ -61,3 +61,9 @@ class ApplicationManager:
 
     def getContainers(self):
         return self.__containerDictionary
+
+    def clearAll(self):
+        self.__containerDictionary = {}
+
+
+

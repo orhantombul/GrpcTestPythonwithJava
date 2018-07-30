@@ -2,8 +2,8 @@ import time
 
 import grpc
 from concurrent import futures
-import ContainerServer_pb2_grpc
-import ContainerServer_pb2
+from mytest.MonitorServicePython.com import ContainerServer_pb2_grpc
+from mytest.MonitorServicePython.com import ContainerServer_pb2
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 

@@ -1,7 +1,7 @@
 from __future__ import print_function
 import grpc
-import ContainerServer_pb2
-import ContainerServer_pb2_grpc
+from mytest.MonitorServicePython.com import ContainerServer_pb2
+from mytest.MonitorServicePython.com import ContainerServer_pb2_grpc
 
 
 def run():

@@ -1,7 +1,12 @@
+from mytest.MonitorServicePython.com.Docker import Docker
+
+
 class Container:
-    def __init__(self, ip=None, docker_list=None):
+    def init(self, ip=None, docker_list=None):
         self.__ip = ip
         self.__docker_list = docker_list
+        if docker_list is None:
+            self.__docker_list = []
 
     def getContainerIp(self):
         return self.__ip
@@ -14,3 +19,13 @@ class Container:
 
     def getDockerList(self):
         return self.__docker_list
+
+    def setContainerByGrpcContainer(self, grpcContainer):
+        self.setIp(grpcContainer.containerip)
+        docker_list = []
+        for grpc_docker in grpcContainer.dockerlist:
+            docker = Docker()
+            docker.setDockerByGrpcDocker(grpc_docker)
+            docker_list.append(docker)
+        self.setDockerList(docker_list)
+

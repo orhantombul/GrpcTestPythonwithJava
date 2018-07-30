@@ -18,6 +18,7 @@ message ContainerList{
 	repeated Container containerlist = 1;
 }
 message Response{
+	int32 response = 1;
 }
 service SentServiceStatus{
 	rpc contlist(ContainerList) returns (Response){}
