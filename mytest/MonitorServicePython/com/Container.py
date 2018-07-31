@@ -21,11 +21,10 @@ class Container:
         return self.__docker_list
 
     def setContainerByGrpcContainer(self, grpcContainer):
-        self.setIp(grpcContainer.containerip)
+        self.setIp(grpcContainer.ip)
         docker_list = []
         for grpc_docker in grpcContainer.dockerlist:
             docker = Docker()
             docker.setDockerByGrpcDocker(grpc_docker)
             docker_list.append(docker)
         self.setDockerList(docker_list)
-

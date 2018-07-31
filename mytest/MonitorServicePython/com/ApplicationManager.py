@@ -1,4 +1,6 @@
 from mytest.MonitorServicePython.com.Container import Container
+from mytest.MonitorServicePython.com.Docker import Docker
+from mytest.MonitorServicePython.com.DockerInfo import DockerInfo
 
 
 class ApplicationManager:
@@ -7,7 +9,7 @@ class ApplicationManager:
 
     def __init__(self):
         if ApplicationManager.__applicationManager is not None:
-            raise Exception("WTF ! ")
+            raise Exception("Application manager was not created !!! ")
         else:
             ApplicationManager.__applicationManager = self
 

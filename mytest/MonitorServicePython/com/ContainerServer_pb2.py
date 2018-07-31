@@ -17,9 +17,9 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='ContainerServer.proto',
-  package='testpythonwithjava',
+  package='tr.com.argela.grpcserver',
   syntax='proto3',
-  serialized_pb=_b('\n\x15\x43ontainerServer.proto\x12\x12testpythonwithjava\"4\n\nDockerInfo\x12\x10\n\x08\x64ockerip\x18\x01 \x01(\t\x12\x14\n\x0c\x64ockerstatus\x18\x02 \x01(\t\"P\n\x06\x44ocker\x12\x12\n\ndockername\x18\x01 \x01(\t\x12\x32\n\ndockerinfo\x18\x02 \x01(\x0b\x32\x1e.testpythonwithjava.DockerInfo\"P\n\tContainer\x12\x13\n\x0b\x63ontainerip\x18\x01 \x01(\t\x12.\n\ndockerlist\x18\x02 \x03(\x0b\x32\x1a.testpythonwithjava.Docker\"E\n\rContainerList\x12\x34\n\rcontainerlist\x18\x01 \x03(\x0b\x32\x1d.testpythonwithjava.Container\"\n\n\x08Response2b\n\x11SentServiceStatus\x12M\n\x08\x63ontlist\x12!.testpythonwithjava.ContainerList\x1a\x1c.testpythonwithjava.Response\"\x00\x42\x02P\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x15\x43ontainerServer.proto\x12\x18tr.com.argela.grpcserver\"(\n\nDockerInfo\x12\n\n\x02ip\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\"J\n\x06\x44ocker\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x32\n\x04info\x18\x02 \x01(\x0b\x32$.tr.com.argela.grpcserver.DockerInfo\"M\n\tContainer\x12\n\n\x02ip\x18\x01 \x01(\t\x12\x34\n\ndockerlist\x18\x02 \x03(\x0b\x32 .tr.com.argela.grpcserver.Docker\"R\n\x14\x43ontainerListRequest\x12:\n\rcontainerlist\x18\x01 \x03(\x0b\x32#.tr.com.argela.grpcserver.Container\")\n\x15\x43ontainerListResponse\x12\x10\n\x08response\x18\x01 \x01(\x05\x32|\n\x0bSendService\x12m\n\x08\x63ontlist\x12..tr.com.argela.grpcserver.ContainerListRequest\x1a/.tr.com.argela.grpcserver.ContainerListResponse\"\x00\x42\x02P\x01\x62\x06proto3')
 )
 
 
@@ -27,20 +27,20 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _DOCKERINFO = _descriptor.Descriptor(
   name='DockerInfo',
-  full_name='testpythonwithjava.DockerInfo',
+  full_name='tr.com.argela.grpcserver.DockerInfo',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dockerip', full_name='testpythonwithjava.DockerInfo.dockerip', index=0,
+      name='ip', full_name='tr.com.argela.grpcserver.DockerInfo.ip', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='dockerstatus', full_name='testpythonwithjava.DockerInfo.dockerstatus', index=1,
+      name='status', full_name='tr.com.argela.grpcserver.DockerInfo.status', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -58,27 +58,27 @@ _DOCKERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=45,
-  serialized_end=97,
+  serialized_start=51,
+  serialized_end=91,
 )
 
 
 _DOCKER = _descriptor.Descriptor(
   name='Docker',
-  full_name='testpythonwithjava.Docker',
+  full_name='tr.com.argela.grpcserver.Docker',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dockername', full_name='testpythonwithjava.Docker.dockername', index=0,
+      name='name', full_name='tr.com.argela.grpcserver.Docker.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='dockerinfo', full_name='testpythonwithjava.Docker.dockerinfo', index=1,
+      name='info', full_name='tr.com.argela.grpcserver.Docker.info', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -96,27 +96,27 @@ _DOCKER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=99,
-  serialized_end=179,
+  serialized_start=93,
+  serialized_end=167,
 )
 
 
 _CONTAINER = _descriptor.Descriptor(
   name='Container',
-  full_name='testpythonwithjava.Container',
+  full_name='tr.com.argela.grpcserver.Container',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='containerip', full_name='testpythonwithjava.Container.containerip', index=0,
+      name='ip', full_name='tr.com.argela.grpcserver.Container.ip', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='dockerlist', full_name='testpythonwithjava.Container.dockerlist', index=1,
+      name='dockerlist', full_name='tr.com.argela.grpcserver.Container.dockerlist', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -134,20 +134,20 @@ _CONTAINER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=181,
-  serialized_end=261,
+  serialized_start=169,
+  serialized_end=246,
 )
 
 
-_CONTAINERLIST = _descriptor.Descriptor(
-  name='ContainerList',
-  full_name='testpythonwithjava.ContainerList',
+_CONTAINERLISTREQUEST = _descriptor.Descriptor(
+  name='ContainerListRequest',
+  full_name='tr.com.argela.grpcserver.ContainerListRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='containerlist', full_name='testpythonwithjava.ContainerList.containerlist', index=0,
+      name='containerlist', full_name='tr.com.argela.grpcserver.ContainerListRequest.containerlist', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -165,18 +165,25 @@ _CONTAINERLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=263,
-  serialized_end=332,
+  serialized_start=248,
+  serialized_end=330,
 )
 
 
-_RESPONSE = _descriptor.Descriptor(
-  name='Response',
-  full_name='testpythonwithjava.Response',
+_CONTAINERLISTRESPONSE = _descriptor.Descriptor(
+  name='ContainerListResponse',
+  full_name='tr.com.argela.grpcserver.ContainerListResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='response', full_name='tr.com.argela.grpcserver.ContainerListResponse.response', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -189,80 +196,80 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=334,
-  serialized_end=344,
+  serialized_start=332,
+  serialized_end=373,
 )
 
-_DOCKER.fields_by_name['dockerinfo'].message_type = _DOCKERINFO
+_DOCKER.fields_by_name['info'].message_type = _DOCKERINFO
 _CONTAINER.fields_by_name['dockerlist'].message_type = _DOCKER
-_CONTAINERLIST.fields_by_name['containerlist'].message_type = _CONTAINER
+_CONTAINERLISTREQUEST.fields_by_name['containerlist'].message_type = _CONTAINER
 DESCRIPTOR.message_types_by_name['DockerInfo'] = _DOCKERINFO
 DESCRIPTOR.message_types_by_name['Docker'] = _DOCKER
 DESCRIPTOR.message_types_by_name['Container'] = _CONTAINER
-DESCRIPTOR.message_types_by_name['ContainerList'] = _CONTAINERLIST
-DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
+DESCRIPTOR.message_types_by_name['ContainerListRequest'] = _CONTAINERLISTREQUEST
+DESCRIPTOR.message_types_by_name['ContainerListResponse'] = _CONTAINERLISTRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 DockerInfo = _reflection.GeneratedProtocolMessageType('DockerInfo', (_message.Message,), dict(
   DESCRIPTOR = _DOCKERINFO,
   __module__ = 'ContainerServer_pb2'
-  # @@protoc_insertion_point(class_scope:testpythonwithjava.DockerInfo)
+  # @@protoc_insertion_point(class_scope:tr.com.argela.grpcserver.DockerInfo)
   ))
 _sym_db.RegisterMessage(DockerInfo)
 
 Docker = _reflection.GeneratedProtocolMessageType('Docker', (_message.Message,), dict(
   DESCRIPTOR = _DOCKER,
   __module__ = 'ContainerServer_pb2'
-  # @@protoc_insertion_point(class_scope:testpythonwithjava.Docker)
+  # @@protoc_insertion_point(class_scope:tr.com.argela.grpcserver.Docker)
   ))
 _sym_db.RegisterMessage(Docker)
 
 Container = _reflection.GeneratedProtocolMessageType('Container', (_message.Message,), dict(
   DESCRIPTOR = _CONTAINER,
   __module__ = 'ContainerServer_pb2'
-  # @@protoc_insertion_point(class_scope:testpythonwithjava.Container)
+  # @@protoc_insertion_point(class_scope:tr.com.argela.grpcserver.Container)
   ))
 _sym_db.RegisterMessage(Container)
 
-ContainerList = _reflection.GeneratedProtocolMessageType('ContainerList', (_message.Message,), dict(
-  DESCRIPTOR = _CONTAINERLIST,
+ContainerListRequest = _reflection.GeneratedProtocolMessageType('ContainerListRequest', (_message.Message,), dict(
+  DESCRIPTOR = _CONTAINERLISTREQUEST,
   __module__ = 'ContainerServer_pb2'
-  # @@protoc_insertion_point(class_scope:testpythonwithjava.ContainerList)
+  # @@protoc_insertion_point(class_scope:tr.com.argela.grpcserver.ContainerListRequest)
   ))
-_sym_db.RegisterMessage(ContainerList)
+_sym_db.RegisterMessage(ContainerListRequest)
 
-Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), dict(
-  DESCRIPTOR = _RESPONSE,
+ContainerListResponse = _reflection.GeneratedProtocolMessageType('ContainerListResponse', (_message.Message,), dict(
+  DESCRIPTOR = _CONTAINERLISTRESPONSE,
   __module__ = 'ContainerServer_pb2'
-  # @@protoc_insertion_point(class_scope:testpythonwithjava.Response)
+  # @@protoc_insertion_point(class_scope:tr.com.argela.grpcserver.ContainerListResponse)
   ))
-_sym_db.RegisterMessage(Response)
+_sym_db.RegisterMessage(ContainerListResponse)
 
 
 DESCRIPTOR.has_options = True
 DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), _b('P\001'))
 
-_SENTSERVICESTATUS = _descriptor.ServiceDescriptor(
-  name='SentServiceStatus',
-  full_name='testpythonwithjava.SentServiceStatus',
+_SENDSERVICE = _descriptor.ServiceDescriptor(
+  name='SendService',
+  full_name='tr.com.argela.grpcserver.SendService',
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=346,
-  serialized_end=444,
+  serialized_start=375,
+  serialized_end=499,
   methods=[
   _descriptor.MethodDescriptor(
     name='contlist',
-    full_name='testpythonwithjava.SentServiceStatus.contlist',
+    full_name='tr.com.argela.grpcserver.SendService.contlist',
     index=0,
     containing_service=None,
-    input_type=_CONTAINERLIST,
-    output_type=_RESPONSE,
+    input_type=_CONTAINERLISTREQUEST,
+    output_type=_CONTAINERLISTRESPONSE,
     options=None,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_SENTSERVICESTATUS)
+_sym_db.RegisterServiceDescriptor(_SENDSERVICE)
 
-DESCRIPTOR.services_by_name['SentServiceStatus'] = _SENTSERVICESTATUS
+DESCRIPTOR.services_by_name['SendService'] = _SENDSERVICE
 
 # @@protoc_insertion_point(module_scope)

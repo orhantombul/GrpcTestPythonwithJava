@@ -4,7 +4,7 @@ import grpc
 import ContainerServer_pb2 as ContainerServer__pb2
 
 
-class SentServiceStatusStub(object):
+class SendServiceStub(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -15,13 +15,13 @@ class SentServiceStatusStub(object):
       channel: A grpc.Channel.
     """
     self.contlist = channel.unary_unary(
-        '/testpythonwithjava.SentServiceStatus/contlist',
-        request_serializer=ContainerServer__pb2.ContainerList.SerializeToString,
-        response_deserializer=ContainerServer__pb2.Response.FromString,
+        '/tr.com.argela.grpcserver.SendService/contlist',
+        request_serializer=ContainerServer__pb2.ContainerListRequest.SerializeToString,
+        response_deserializer=ContainerServer__pb2.ContainerListResponse.FromString,
         )
 
 
-class SentServiceStatusServicer(object):
+class SendServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -33,14 +33,14 @@ class SentServiceStatusServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_SentServiceStatusServicer_to_server(servicer, server):
+def add_SendServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'contlist': grpc.unary_unary_rpc_method_handler(
           servicer.contlist,
-          request_deserializer=ContainerServer__pb2.ContainerList.FromString,
-          response_serializer=ContainerServer__pb2.Response.SerializeToString,
+          request_deserializer=ContainerServer__pb2.ContainerListRequest.FromString,
+          response_serializer=ContainerServer__pb2.ContainerListResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'testpythonwithjava.SentServiceStatus', rpc_method_handlers)
+      'tr.com.argela.grpcserver.SendService', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))
