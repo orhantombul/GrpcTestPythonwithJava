@@ -15,10 +15,10 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
 @app.route('/')
-def test():
+def run():
     application_manager = ApplicationManager.getApplicationManager()
     containerMap = application_manager.getContainers()
-
+    print("i started")
     return render_template("robot.html", containerMap=containerMap)
 
 
@@ -38,7 +38,7 @@ class GetInfoFromGrpc(ContainerServer_pb2_grpc.SendServiceServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     ContainerServer_pb2_grpc.add_SendServiceServicer_to_server(GetInfoFromGrpc(), server)
-    server.add_insecure_port('[::]:5015')
+    server.add_insecure_port('[::]:5016')
     server.start()
     print("server started")
     try:
@@ -49,9 +49,10 @@ def serve():
 
 
 serve_thread = threading.Thread(name='serve', target=serve)
-app_thread = threading.Thread(name='app.run', target=app.run)
+'''app_thread = threading.Thread(name='app.run', target=app.run)'''
 
 if __name__ == "__main__":
     app.config['SERVER_NAME'] = "127.0.0.1:5555"
+    t = threading.Timer(5, app.run()).start()
     serve_thread.start()
-    app_thread.start()
+    '''app_thread.start()'''
