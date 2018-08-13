@@ -3,35 +3,45 @@
 <head>
 	<title>Title1</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+     <meta http-equiv="refresh" content="5">
 </head>
 <body>
 {% for container_ip in containerMap %}
-    <div class="card-header"> ONAP -- {{ container_ip }} </div>
-            <div class="flex-container">
-{% for docker in containerMap[container_ip].getDockerList() %}
-                <div>
-                    {% if docker.getDockerInfo().getDockerInfoStatus() == 'FAIL' %}
-                        <div class="card">
-                                <div class="card-header">DockerName: {{docker.getDockerName() }}</div>
-                                    <div class="card-main">
-                                        <div class="material-icons">IpAddress: {{ docker.getDockerInfo().getDockerInfoIp() }}</div>
-                                         <div class="material-icons">Status: {{ docker.getDockerInfo().getDockerInfoStatus() }}</div>
-                                    </div>
+    <div class="containerIp"> ONAP -- {{ container_ip }} </div>
+    <div class="containerMain">
+        {% for docker in containerMap[container_ip].getDockerList() %}
+            <div>
+                {% if docker.getDockerInfo().getDockerInfoStatus() == 'FAIL' %}
+                    <div class="dockerFail">
+                        <div class="dockerNameFail">DockerName: {{docker.getDockerName() }}</div>
+                        <div class="dockerMain">
+                            <div class="dockerInfoRed">
+                                IpAddress: {{ docker.getDockerInfo().getDockerInfoIp() }}</div>
+                            <div class="dockerStatusRed">
+                                Status: {{ docker.getDockerInfo().getDockerInfoStatus() }}</div>
                         </div>
-                     {% else %}
-                        <div class="card1">
-                            <div class="card-header1">DockerName: {{ docker.getDockerName() }}</div>
-                            <div class="card-main1">
-                                <div class="material-icons1">IpAddress: {{ docker.getDockerInfo().getDockerInfoIp() }}</div>
-                                <div class="material-icons1">Status: {{ docker.getDockerInfo().getDockerInfoStatus() }}</div>
-                            </div>
+                    </div>
+                {% else %}
+                    <div class="dockerPass">
+                        <div class="dockerNamePass">DockerName: {{ docker.getDockerName() }}</div>
+                        <div class="dockerMain">
+                            <div class="dockerInfoGreen">
+                                IpAddress: {{ docker.getDockerInfo().getDockerInfoIp() }}</div>
+                            <div class="dockerStatusGreen">
+                                Status: {{ docker.getDockerInfo().getDockerInfoStatus() }}</div>
                         </div>
-                    {% endif %}
-                 </div>
-        {% endfor %}
-
+                    </div>
+                {% endif %}
             </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
+{% endfor %}
+<div class="footerRight">
+  <div style="background-color: #FFFFFF">Created by Orhan Tombul</div>
+</div>
+<div class="footerLeft">
+  <div>Argela</div>
+</div>
 </body>
 </html>

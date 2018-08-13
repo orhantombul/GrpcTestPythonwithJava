@@ -9,6 +9,7 @@ from mytest.MonitorServicePython.com import ContainerServer_pb2, ContainerServer
 from mytest.MonitorServicePython.com.ApplicationManager import ApplicationManager
 from mytest.MonitorServicePython.com.Container import Container
 
+server_port_addr = 'localhost:5016'
 app = Flask(__name__)
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
@@ -36,9 +37,9 @@ class GetInfoFromGrpc(ContainerServer_pb2_grpc.SendServiceServicer):
 
 
 def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
     ContainerServer_pb2_grpc.add_SendServiceServicer_to_server(GetInfoFromGrpc(), server)
-    server.add_insecure_port('[::]:5016')
+    server.add_insecure_port(server_port_addr)    # Server port address
     server.start()
     print("server started")
     try:
@@ -49,10 +50,11 @@ def serve():
 
 
 serve_thread = threading.Thread(name='serve', target=serve)
-'''app_thread = threading.Thread(name='app.run', target=app.run)'''
+app_thread = threading.Thread(name='app.run', target=app.run)
 
 if __name__ == "__main__":
     app.config['SERVER_NAME'] = "127.0.0.1:5555"
-    t = threading.Timer(5, app.run()).start()
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app_thread.start()
     serve_thread.start()
-    '''app_thread.start()'''
