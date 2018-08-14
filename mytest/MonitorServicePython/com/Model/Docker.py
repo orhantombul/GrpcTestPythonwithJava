@@ -1,4 +1,4 @@
-from mytest.MonitorServicePython.com.DockerInfo import DockerInfo
+from mytest.MonitorServicePython.com.Model.DockerInfo import DockerInfo
 
 
 class Docker:

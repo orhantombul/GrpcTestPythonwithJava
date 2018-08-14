@@ -5,11 +5,12 @@ from concurrent import futures
 import grpc
 from flask import Flask, render_template
 
-from mytest.MonitorServicePython.com import ContainerServer_pb2, ContainerServer_pb2_grpc
-from mytest.MonitorServicePython.com.ApplicationManager import ApplicationManager
-from mytest.MonitorServicePython.com.Container import Container
+from mytest.MonitorServicePython.com import ContainerServer_pb2
+from mytest.MonitorServicePython.com import ContainerServer_pb2_grpc
+from mytest.MonitorServicePython.com.Common.ApplicationManager import ApplicationManager
+from mytest.MonitorServicePython.com.Model.Container import Container
 
-server_port_addr = 'localhost:5016'
+
 app = Flask(__name__)
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
@@ -37,9 +38,10 @@ class GetInfoFromGrpc(ContainerServer_pb2_grpc.SendServiceServicer):
 
 
 def serve():
+    server_addr = 'localhost:5016'
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
     ContainerServer_pb2_grpc.add_SendServiceServicer_to_server(GetInfoFromGrpc(), server)
-    server.add_insecure_port(server_port_addr)    # Server port address
+    server.add_insecure_port(server_addr)    # Server port address
     server.start()
     print("server started")
     try:

@@ -1,4 +1,4 @@
-from mytest.MonitorServicePython.com.Container import Container
+from mytest.MonitorServicePython.com.Model.Container import Container
 
 
 class ApplicationManager:
